@@ -6,6 +6,7 @@ const productController = require('../controllers/product');
 
 const auth = require('../configs/auth');
 
-router.get('/', productController.getIndexProduct);
+
+router.get('/', auth.verifyToken, productController.getIndexProduct);
 
 module.exports = router;
