@@ -72,6 +72,6 @@ module.exports.postUpdate = (req, res) =>{
             console.log("Done");
             res.send('Data Berhasil Di Rubah');
         });
-   
+    
 }
 

@@ -5,10 +5,10 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports.getIndexProduct = (req, res) => {
-    jwt.verify(req.token, process.env.SECRETKEY, (error, authData)=>{
-        if(error){
+    jwt.verify(req.token, process.env.SECRETKEY, (error, authData) => {
+        if (error) {
             res.sendStatus(403);
-        }else{
+        } else {
             res.json({
                 message: 'OK',
                 authData: authData
