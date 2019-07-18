@@ -9,8 +9,7 @@ class Order extends Sequelize.Model {}
 Order.init({
     tanggal_order: Sequelize.STRING
 }, {
-    sequelize,
-    modelName: 'order'
+    sequelize, modelName: 'order'
 });
 
 
