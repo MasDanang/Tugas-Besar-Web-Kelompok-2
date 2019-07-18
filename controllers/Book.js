@@ -28,13 +28,34 @@ module.exports.postCreate = (req, res) => {
                     message: e
                 }))
             }else{
-                res.status(400).send('And bukan admin');
+                res.status(400).send('Anda bukan admin');
             }
         }
     })
    
 }
 
+module.exports.postDestroy = (req, res) =>{
+    jwt.verify(req.token, process.env.SECRETKEY, (err, userData)=>{
+        if (err) {
+            res.status(400).send("Error");
+        }else{
+            if(userData.roles == 'admin' || userData.roles == 'Admin'){
+                Book.destroy({
+                    where: {
+                        id: req.params.id
+                    }
+                }).then(()=>{
+                        console.log("Done");
+                        res.send('Data Berhasil Di Hapus');
+                    });
+            }else{
+                res.status(400).send('And bukan admin');
+            }
+        }
+    })
+   
+}
 
 
 
