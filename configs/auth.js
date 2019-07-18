@@ -7,6 +7,6 @@ module.exports.verifyToken = (req, res, next)=>{
         req.token = bearerToken;
         next();
     } else{
-        res.sendStatus(403).send('Anda Belum Login!');
+        res.sendStatus(403).Message("Login terlebih dahulu");
     }
 }
