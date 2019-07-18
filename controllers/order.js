@@ -2,7 +2,7 @@ const Order = require('../models/order');
 const Books = require('../models/Book');
 const jwt = require('jsonwebtoken');
 
-// Create Order
+// Create Order Book
 module.exports.postOrder = (req, res) => {
     jwt.verify(req.token, process.env.SECRETKEY, (error, authData) => {
         if (error) {
