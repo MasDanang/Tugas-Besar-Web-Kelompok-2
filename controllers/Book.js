@@ -59,3 +59,54 @@ module.exports.postDestroy = (req, res) =>{
 
 
 
+
+module.exports.putUpdate = (req, res) =>{
+    jwt.verify(req.token, process.env.SECRETKEY, (err, userData)=>{
+        if (err) {
+            res.status(400).send("Error");
+        }else{
+            if(userData.roles == 'admin' || userData.roles == 'Admin'){   
+            Book.update({ judul: req.body.judul},{
+                where: {
+                    id: req.body.id
+                }
+            }).then(()=>{
+                    console.log("Done");
+                    res.send('Data Berhasil Di Rubah');
+                });
+            }else{
+                res.status(400).send('And bukan admin');
+            }
+        }
+    })
+    
+}
+
+module.exports.getView= (req, res) =>{
+    jwt.verify(req.token, process.env.SECRETKEY, (error, authData)=>{
+        if(error){
+            res.sendStatus(403);
+        }else{
+    Book.findAll().then(book=>{
+        res.json(book)
+    })
+}
+    })
+}
+module.exports.getBook= (req, res) =>{
+    jwt.verify(req.token, process.env.SECRETKEY, (err, userData)=>{
+        if (err) {
+            res.status(400).send("Error");
+        }else{
+            Book.findOne({
+                where:{
+                    id: req.params.id
+                }
+            }).then(book=>{
+                res.json(book)
+            })
+        }
+    })
+}
+
+
