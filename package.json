@@ -11,7 +11,7 @@
     "node",
     "express"
   ],
-  "author": "Charel",
+  "author": "Kelompok 2",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
