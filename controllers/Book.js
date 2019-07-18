@@ -21,7 +21,7 @@ module.exports.postCreate = (req, res) => {
             if(userData.roles == 'admin' || userData.roles == 'Admin'){
                 Book.create(values)
                 .then(buku => res.status(201).json({
-                    message: 'Berhasil disimpan',
+                    message: 'Berhasil Disimpan',
                     data: buku
                 })).catch(e => res.json({
                     error: true,
