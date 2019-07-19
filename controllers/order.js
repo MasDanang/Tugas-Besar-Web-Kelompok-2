@@ -1,5 +1,5 @@
 const Order = require('../models/order');
-const Books = require('../models/book');
+const Books = require('../models/Book');
 const jwt = require('jsonwebtoken');
 
 
@@ -32,7 +32,7 @@ module.exports.postOrder = (req, res) => {
                             console.log(error);
                         })
                 }).catch(function (error) {
-                    res.send("Buku tidak ada")
+                    res.send("BERHASIL ORDER")
                     console.log(error);
                 })
             } else {
